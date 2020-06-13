@@ -15,6 +15,7 @@ while True:
         print(queue.popleft()+1)
         break
 
+
     queue.popleft()
 
     shuffle = queue.popleft()
