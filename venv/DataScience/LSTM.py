@@ -1,5 +1,5 @@
 
-def lstm(X_train, X_test, Y_train, Y_test):
+def LSTM(X_train, X_test, Y_train, Y_test):
 
     import keras
     from sklearn.preprocessing import StandardScaler
