@@ -9,7 +9,6 @@
 
 ##################################################################
 
-
 # 가변길이 argument를 받을 때 *args 사용 (*만 있으면 사용가능)
 
 ########################### args 리스트 ###########################
@@ -45,11 +44,12 @@ def main(*args):
     pd.set_option('display.max_columns', None)
     # pd.set_option('display.max_rows', None)
 
-    print(rawData)
+    # print(rawData)
 
     ##################################################################
 
     # Second : Preprocess data from rawData to Train & Test set
+    # Step : 1.remove Outlier 2.Feature Scaling 3.Test & Train Split/Shuffle
 
     import preprocessing
 
@@ -57,20 +57,25 @@ def main(*args):
 
     # For regression (ex. Demand/Time forecasting) --> preprocessingData
 
+    # step 1 : remove outlier (from EDA or domain Knowledge)
     preprocessingData = rawData
+
+    # step 2 : Feature scaling
+
+
 
     # For classification (ex. image, Natural language) --> preprocessingData
 
     preprocessingData = rawData
 
-    # X (Independent variable) & Y (Dependent variable) Split - Rule : Y 값은 데이터 Column 앞부분에 위치
+    # X (Independent variable) & Y (Dependent variable) Split
 
-    x = preprocessingData[0]
-    y = preprocessingData[1:]
+    independentVar = preprocessingData.loc[:, ["Temperature", "Humidity", "Light", "CO2", "HumidityRatio"]]
+    dependentVar = preprocessingData.loc[:, ["Occupancy"]]
 
-    # Train & Test Split
+    # Train & Test Split (독립변수, 의존변수, Shuffle 유무, Test Set 사이즈)
 
-    X_train, X_test, y_train, y_test = preprocessing.train_test_split(x, y)
+    x_train, x_test, y_train, y_test = preprocessing.train_test_split(independentVar, dependentVar, True, 0.2)
 
     ##################################################################
 
