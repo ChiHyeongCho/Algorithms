@@ -8,7 +8,7 @@ def dijkstra(start, n, graph):
     queue = PriorityQueue
     queue.put(0, start)
 
-    while queue:
+    while queue.qsize() != 0:
 
         dist, now = queue.get()
 
