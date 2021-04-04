@@ -25,6 +25,7 @@ while pqueue.qsize() != 0:
     for i in link[personNo]:
         indegree[i] -= 1
 
+
         if indegree[i] == 0:
             pqueue.put((0, i))
 
