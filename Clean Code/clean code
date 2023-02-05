@@ -1,1 +1,6 @@
 
+Clean Code : 다른 엔지니어가 코드를 읽고 유지 관리할 수 있는지 여부
+
+1) 주석대신 문서화(Docstring)를 사용해서 변수나 객체값을 파악 / Mypy를 사용한 자동화된 검증
+
+   -> convert_stereo_to_mono.__doc__ // help(convert_stereo_to_mono) 이런 방법으로 함수에 대한 doc 파악  
